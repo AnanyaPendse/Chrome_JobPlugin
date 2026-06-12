@@ -4,10 +4,10 @@
   "version": "0.1.0",
   "description": "Autofill job application forms with your saved profile information.",
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "src/popup.html",
     "default_title": "Job Application Autofill"
   },
-  "options_page": "options.html",
+  "options_page": "src/options.html",
   "permissions": ["storage", "activeTab", "scripting"],
   "host_permissions": ["<all_urls>"],
   "content_scripts": [

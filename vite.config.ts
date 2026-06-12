@@ -1,16 +1,12 @@
+import fs from 'fs';
+import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { crx } from '@crxjs/vite-plugin';
-import manifest from './src/manifest.json';
+
+const manifestPath = path.resolve(__dirname, 'src/manifest.json');
+const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
 
 export default defineConfig({
-  plugins: [crx({ manifest }), react()],
-  build: {
-    rollupOptions: {
-      input: {
-        popup: 'src/popup.html',
-        options: 'src/options.html'
-      }
-    }
-  }
+  plugins: [react(), crx({ manifest })]
 });
